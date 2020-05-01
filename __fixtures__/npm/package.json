@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "preinstall": "node ../../bin.js npm"
+  }
+}
+
