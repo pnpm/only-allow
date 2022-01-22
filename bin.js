@@ -8,27 +8,32 @@ if (argv.length === 0) {
   process.exit(1)
 }
 const wantedPM = argv[0]
+const wantedVersion = arg[1]
+
 if (wantedPM !== 'npm' && wantedPM !== 'pnpm' && wantedPM !== 'yarn') {
   console.log(`"${wantedPM}" is not a valid package manager. Available package managers are: npm, pnpm, or yarn.`)
   process.exit(1)
 }
 const usedPM = whichPMRuns()
-if (usedPM && usedPM.name !== wantedPM) {
+if (usedPM && usedPM.name !== wantedPM && usedPM.version !== wantedVersion) {
   const boxenOpts = { borderColor: 'red', borderStyle: 'double', padding: 1 }
   switch (wantedPM) {
     case 'npm':
-      console.log(boxen('Use "npm install" for installation in this project', boxenOpts))
+      console.log(boxen(`Use "npm install" with npm version "${wantedVersion}" for installation in this project
+
+If you don't have version ${wantedPM} of npm, install it via "npm i -g npm@${wantedVersion}".
+For more details, go to https://www.npmjs.com/`, boxenOpts))
       break
     case 'pnpm':
-      console.log(boxen(`Use "pnpm install" for installation in this project.
+      console.log(boxen(`Use "pnpm install" with pnpm version "${wantedVersion}" for installation in this project.
 
-If you don't have pnpm, install it via "npm i -g pnpm".
+If you don't have pnpm, install it via "npm i -g pnpm@${wantedVersion}".
 For more details, go to https://pnpm.js.org/`, boxenOpts))
       break
     case 'yarn':
-      console.log(boxen(`Use "yarn" for installation in this project.
+      console.log(boxen(`Use "yarn" with yarn version "${wantedVersion}" for installation in this project.
 
-If you don't have Yarn, install it via "npm i -g yarn".
+If you don't have Yarn, install it via "npm i -g yarn@${wantedVersion}".
 For more details, go to https://yarnpkg.com/`, boxenOpts))
       break
   }
