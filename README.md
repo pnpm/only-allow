@@ -35,6 +35,15 @@ If you want to force [yarn](https://yarnpkg.com/), add:
   }
 }
 ```
+If you want to force package manager `version`, add:
+
+```json
+{
+  "scripts": {
+    "preinstall": "npx only-allow pnpm@6.10.3"
+  }
+}
+```
 
 ## License
 
