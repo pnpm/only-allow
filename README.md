@@ -16,6 +16,16 @@ If you want to force [npm](https://docs.npmjs.com/cli/npm), add:
 }
 ```
 
+If you want to force [cnpm](https://npmmirror.com/), add:
+
+```json
+{
+  "scripts": {
+    "preinstall": "npx only-allow cnpm"
+  }
+}
+```
+
 If you want to force [pnpm](https://pnpm.js.org/), add:
 
 ```json

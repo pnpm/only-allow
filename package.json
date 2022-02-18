@@ -10,6 +10,7 @@
   "scripts": {},
   "keywords": [
     "pnpm",
+    "cnpm",
     "npm",
     "yarn"
   ],
@@ -25,6 +26,6 @@
   "homepage": "https://github.com/pnpm/only-allow#readme",
   "dependencies": {
     "boxen": "^4.2.0",
-    "which-pm-runs": "^1.0.0"
+    "which-pm-runs": "^1.1.0"
   }
 }
