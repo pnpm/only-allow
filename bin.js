@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const whichPMRuns = require('which-pm-runs')
 const boxen = require('boxen')
-const compareVersions = require('compare-versions')
+const { compare, validate } = require('compare-versions')
 
 const argv = process.argv.slice(2)
 if (argv.length === 0) {
@@ -36,9 +36,9 @@ For more details, go to https://yarnpkg.com/`, boxenOpts))
   }
   process.exit(1)
 } else if (wantedPM[1]) {
-  if (!compareVersions.validate(wantedPM[1])) {
+  if (!validate(wantedPM[1])) {
     console.log(boxen('invalid version ' + argv[0], boxenOpts))
-  } else if (compareVersions.compare(usedPM.version, wantedPM[1], '>=')) {
+  } else if (compare(usedPM.version, wantedPM[1], '>=')) {
     console.log(boxen('Current version is too low, please upgrade to ' + argv[0] + ' or higher', boxenOpts))
   }
 }
