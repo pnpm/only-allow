@@ -1,30 +1,32 @@
 {
-  "name": "only-allow",
+  "name": "only-allow2",
   "version": "1.0.0",
-  "description": "Force a specific package manager to be used on a project",
+  "description": "Force a specific package manager and it's version to be used on a project",
   "main": "bin.js",
   "bin": "bin.js",
   "files": [
     "bin.js"
   ],
   "scripts": {
-    "preinstall": "node bin.js pnpm@6.0.0"
+    "preinstall": "node bin.js pnpm@6.3.0"
   },
   "keywords": [
     "pnpm",
     "npm",
-    "yarn"
+    "yarn",
+    "cnpm",
+    "npminstall"
   ],
-  "author": "Zoltan Kochan <z@kochan.io>",
+  "author": "luckymore <flyflydogdog@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pnpm/only-allow.git"
+    "url": "git+https://github.com/luckymore/only-allow.git"
   },
   "bugs": {
-    "url": "https://github.com/pnpm/only-allow/issues"
+    "url": "https://github.com/luckymore/only-allow/issues"
   },
-  "homepage": "https://github.com/pnpm/only-allow#readme",
+  "homepage": "https://github.com/luckymore/only-allow#readme",
   "dependencies": {
     "boxen": "^4.2.0",
     "compare-versions": "^4.1.3",

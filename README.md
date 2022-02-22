@@ -1,6 +1,6 @@
-# only-allow
+# only-allow2
 
-> Force a specific package manager to be used on a project
+> Force a specific package manager and **it's version** to be used on a project
 
 ## Usage
 
