@@ -1,6 +1,6 @@
 {
   "name": "only-allow2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Force a specific package manager and it's version to be used on a project",
   "main": "bin.js",
   "bin": "bin.js",
