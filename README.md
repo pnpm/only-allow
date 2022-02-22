@@ -6,6 +6,12 @@
 
 Add a `preinstall` script to your project's `package.json`.
 
+support:
+- npm
+- cnpm
+- yarn
+- pnpm
+
 If you want to force [npm](https://docs.npmjs.com/cli/npm), add:
 
 ```json
@@ -14,27 +20,7 @@ If you want to force [npm](https://docs.npmjs.com/cli/npm), add:
     "preinstall": "npx only-allow2 npm"
   }
 }
-```
 
-If you want to force [pnpm](https://pnpm.js.org/), add:
-
-```json
-{
-  "scripts": {
-    "preinstall": "npx only-allow2 pnpm"
-  }
-}
-```
-
-If you want to force [yarn](https://yarnpkg.com/), add:
-
-```json
-{
-  "scripts": {
-    "preinstall": "npx only-allow2 yarn"
-  }
-}
-```
 If you want to force package manager `version`, add:
 
 ```json
