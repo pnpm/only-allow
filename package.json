@@ -8,7 +8,6 @@
     "bin.js"
   ],
   "scripts": {
-    "preinstall": "node bin.js pnpm@6.3.0"
   },
   "keywords": [
     "pnpm",
