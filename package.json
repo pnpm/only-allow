@@ -7,7 +7,9 @@
   "files": [
     "bin.js"
   ],
-  "scripts": {},
+  "scripts": {
+    "preinstall": "node bin.js npm@8.0.0"
+  },
   "keywords": [
     "pnpm",
     "npm",

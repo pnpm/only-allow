@@ -19,26 +19,26 @@ const boxenOpts = { borderColor: 'red', borderStyle: 'double', padding: 1 }
 if (usedPM.name !== wantedPM[0]) {
   switch (wantedPM[0]) {
     case 'npm':
-      console.log(boxen('Use "npm install" for installation in this project', boxenOpts))
+      console.log(boxen('使用 "npm install" 安装此项目', boxenOpts))
       break
     case 'pnpm':
-      console.log(boxen(`Use "pnpm install" for installation in this project.
+      console.log(boxen(`使用 "pnpm install" 安装此项目.
 
-If you don't have pnpm, install it via "npm i -g pnpm".
-For more details, go to https://pnpm.js.org/`, boxenOpts))
+如果没有 pnpm, 执行此命令安装 "npm i -g pnpm".
+更多信息, 请查看 https://pnpm.js.org/`, boxenOpts))
       break
     case 'yarn':
-      console.log(boxen(`Use "yarn" for installation in this project.
+      console.log(boxen(`使用 "yarn" 安装此项目.
 
-If you don't have Yarn, install it via "npm i -g yarn".
-For more details, go to https://yarnpkg.com/`, boxenOpts))
+如果没有 Yarn, 执行此命令安装 "npm i -g yarn".
+更多信息, 请查看 https://yarnpkg.com/`, boxenOpts))
       break
   }
   process.exit(1)
 } else if (wantedPM[1]) {
   if (!validate(wantedPM[1])) {
-    console.log(boxen('invalid version ' + argv[0], boxenOpts))
-  } else if (compare(usedPM.version, wantedPM[1], '>=')) {
-    console.log(boxen('Current version is too low, please upgrade to ' + argv[0] + ' or higher', boxenOpts))
+    console.log(boxen('preinstall 中的版本号不合法 ' + argv[0], boxenOpts))
+  } else if (compare(wantedPM[1], usedPM.version, '>=')) {
+    console.log(boxen('当前版本过低, 请升级到 ' + argv[0] + ' 以上', boxenOpts))
   }
 }
