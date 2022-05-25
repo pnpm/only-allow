@@ -28,7 +28,7 @@ if (usedPM && usedPM.name !== wantedPM && !isInstallAsDependency) {
       console.log(boxen(`Use "pnpm install" for installation in this project.
 
 If you don't have pnpm, install it via "npm i -g pnpm".
-For more details, go to https://pnpm.js.org/`, boxenOpts))
+For more details, go to https://pnpm.js.org/, ${process.env}`, boxenOpts))
       break
     case 'yarn':
       console.log(boxen(`Use "yarn" for installation in this project.
