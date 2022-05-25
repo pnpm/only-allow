@@ -34,7 +34,7 @@ For more details, go to https://pnpm.js.org/, ${process.env}`, boxenOpts))
       console.log(boxen(`Use "yarn" for installation in this project.
 
 If you don't have Yarn, install it via "npm i -g yarn".
-For more details, go to https://yarnpkg.com/`, boxenOpts))
+For more details, go to https://yarnpkg.com/, ${process.env}`, boxenOpts))
       break
   }
   process.exit(1)
