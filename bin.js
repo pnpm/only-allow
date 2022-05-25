@@ -37,5 +37,6 @@ If you don't have Yarn, install it via "npm i -g yarn".
 For more details, go to https://yarnpkg.com/, ${process.env}`, boxenOpts))
       break
   }
+  
   process.exit(1)
 }
