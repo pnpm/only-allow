@@ -13,8 +13,8 @@ if (wantedPM !== 'npm' && wantedPM !== 'cnpm' && wantedPM !== 'pnpm' && wantedPM
   process.exit(1)
 }
 const usedPM = whichPMRuns()
-const isInstallAsDependency = process.env.INIT_CWD.indexOf('node_modules') > -1
-console.log(usedPM, isInstallAsDependency, process.env.INIT_CWD)
+const cwd = process.env.INIT_CWD || process.cwd()
+const isInstallAsDependency = cwd.includes('node_modules')
 if (usedPM && usedPM.name !== wantedPM && !isInstallAsDependency) {
   const boxenOpts = { borderColor: 'red', borderStyle: 'double', padding: 1 }
   switch (wantedPM) {
