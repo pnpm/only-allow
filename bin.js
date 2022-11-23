@@ -14,7 +14,7 @@ if (wantedPM !== 'npm' && wantedPM !== 'cnpm' && wantedPM !== 'pnpm' && wantedPM
 }
 const usedPM = whichPMRuns()
 const cwd = process.env.INIT_CWD || process.cwd()
-const isInstalledAsDependency = cwd.includes('node_modules')
+const isInstalledAsDependency = cwd.includes('node_modules') || cwd.includes('_cacache')
 if (usedPM && usedPM.name !== wantedPM && !isInstalledAsDependency) {
   const boxenOpts = { borderColor: 'red', borderStyle: 'double', padding: 1 }
   switch (wantedPM) {
