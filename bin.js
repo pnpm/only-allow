@@ -4,11 +4,12 @@ const whichPMRuns = require('which-pm-runs')
 function box(s) {
   const lines = s.trim().split("\n")
   const width = lines.reduce((a, b) => Math.max(a, b.length), 0)
+  const surround = x => '║   \x1b[0m' + x.padEnd(width) + '\x1b[31m   ║'
   const bar = '═'.repeat(width)
   const top = '\x1b[31m╔═══' + bar + '═══╗'
-  const center = ['', ...lines, ''].map(x => '║   \x1b[0m' + x.padEnd(width) + '\x1b[31m   ║')
+  const pad = surround('')
   const bottom = '╚═══' + bar + '═══╝\x1b[0m'
-  return [top, ...center, bottom].join('\n')
+  return [top, pad, ...lines.map(surround), pad, bottom].join('\n')
 }
 
 const argv = process.argv.slice(2)
@@ -24,7 +25,7 @@ if (wantedPM !== 'npm' && wantedPM !== 'cnpm' && wantedPM !== 'pnpm' && wantedPM
 const usedPM = whichPMRuns()
 const cwd = process.env.INIT_CWD || process.cwd()
 const isInstalledAsDependency = cwd.includes('node_modules')
-if (true || usedPM && usedPM.name !== wantedPM && !isInstalledAsDependency) {
+if (usedPM && usedPM.name !== wantedPM && !isInstalledAsDependency) {
   switch (wantedPM) {
     case 'npm':
       console.log(box('Use "npm install" for installation in this project'))
