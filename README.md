@@ -46,6 +46,16 @@ If you want to force [yarn](https://yarnpkg.com/), add:
 }
 ```
 
+If you want to force [bun](https://bun.sh/), add:
+
+```json
+{
+  "scripts": {
+    "preinstall": "npx only-allow bun"
+  }
+}
+```
+
 ## License
 
 [MIT](LICENSE)
