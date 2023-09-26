@@ -1,6 +1,16 @@
 #!/usr/bin/env node
 const whichPMRuns = require('which-pm-runs')
-const boxen = require('boxen')
+
+function box(s) {
+  const lines = s.trim().split("\n")
+  const width = lines.reduce((a, b) => Math.max(a, b.length), 0)
+  const surround = x => '║   \x1b[0m' + x.padEnd(width) + '\x1b[31m   ║'
+  const bar = '═'.repeat(width)
+  const top = '\x1b[31m╔═══' + bar + '═══╗'
+  const pad = surround('')
+  const bottom = '╚═══' + bar + '═══╝\x1b[0m'
+  return [top, pad, ...lines.map(surround), pad, bottom].join('\n')
+}
 
 const argv = process.argv.slice(2)
 if (argv.length === 0) {
@@ -16,29 +26,30 @@ const usedPM = whichPMRuns()
 const cwd = process.env.INIT_CWD || process.cwd()
 const isInstalledAsDependency = cwd.includes('node_modules')
 if (usedPM && usedPM.name !== wantedPM && !isInstalledAsDependency) {
-  const boxenOpts = { borderColor: 'red', borderStyle: 'double', padding: 1 }
   switch (wantedPM) {
     case 'npm':
-      console.log(boxen('Use "npm install" for installation in this project', boxenOpts))
+      console.log(box('Use "npm install" for installation in this project'))
       break
     case 'cnpm':
-      console.log(boxen('Use "cnpm install" for installation in this project', boxenOpts))
+      console.log(box('Use "cnpm install" for installation in this project'))
       break
     case 'pnpm':
-      console.log(boxen(`Use "pnpm install" for installation in this project.
+      console.log(box(`Use "pnpm install" for installation in this project.
 
 If you don't have pnpm, install it via "npm i -g pnpm".
-For more details, go to https://pnpm.js.org/`, boxenOpts))
+For more details, go to https://pnpm.js.org/`))
       break
     case 'yarn':
-      console.log(boxen(`Use "yarn" for installation in this project.
+      console.log(box(`Use "yarn" for installation in this project.
 
 If you don't have Yarn, install it via "npm i -g yarn".
-For more details, go to https://yarnpkg.com/`, boxenOpts))
-    case 'bun':
-      console.log(boxen(`Use "bun install" for installation in this project.
+For more details, go to https://yarnpkg.com/`))
 
-If you don't have Bun, go to https://bun.sh/docs/installation and find installation method that suits your environment".`, boxenOpts))
+    case 'bun':
+      console.log(box(`Use "bun install" for installation in this project.
+
+If you don't have Bun, go to https://bun.sh/docs/installation and find installation method that suits your environment".`))
+
       break
   }
   process.exit(1)
