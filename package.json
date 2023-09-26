@@ -12,7 +12,8 @@
     "pnpm",
     "cnpm",
     "npm",
-    "yarn"
+    "yarn",
+    "bun"
   ],
   "author": "Zoltan Kochan <z@kochan.io>",
   "license": "MIT",
