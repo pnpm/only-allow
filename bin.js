@@ -44,12 +44,12 @@ For more details, go to https://pnpm.js.org/`))
 
 If you don't have Yarn, install it via "npm i -g yarn".
 For more details, go to https://yarnpkg.com/`))
+      break
 
     case 'bun':
       console.log(box(`Use "bun install" for installation in this project.
 
 If you don't have Bun, go to https://bun.sh/docs/installation and find installation method that suits your environment".`))
-
       break
   }
   process.exit(1)
