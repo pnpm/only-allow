@@ -1,7 +1,7 @@
 {
-  "name": "only-allow",
+  "name": "only-allow-many",
   "version": "1.2.0",
-  "description": "Force a specific package manager to be used on a project",
+  "description": "Force specific package manager(s) to be used on a project",
   "main": "bin.js",
   "bin": "bin.js",
   "files": [
@@ -15,16 +15,16 @@
     "yarn",
     "bun"
   ],
-  "author": "Zoltan Kochan <z@kochan.io>",
+  "author": "Huort louis <louis@huort.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pnpm/only-allow.git"
+    "url": "git+https://github.com/rharkor/only-allow-many.git"
   },
   "bugs": {
-    "url": "https://github.com/pnpm/only-allow/issues"
+    "url": "https://github.com/rharkor/only-allow-many/issues"
   },
-  "homepage": "https://github.com/pnpm/only-allow#readme",
+  "homepage": "https://github.com/rharkor/only-allow-many#readme",
   "dependencies": {
     "which-pm-runs": "^1.1.0"
   }
