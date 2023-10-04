@@ -56,6 +56,18 @@ If you want to force [bun](https://bun.sh/), add:
 }
 ```
 
+### Multiple package managers
+
+If you want to allow multiple package managers, add:
+
+```json
+{
+  "scripts": {
+    "preinstall": "npx only-allow npm bun"
+  }
+}
+```
+
 ## License
 
 [MIT](LICENSE)
