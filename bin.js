@@ -18,7 +18,7 @@ if (argv.length === 0) {
   process.exit(1)
 }
 const wantedPM = argv[0]
-if (wantedPM !== 'npm' && wantedPM !== 'cnpm' && wantedPM !== 'pnpm' && wantedPM !== 'yarn' && wantedPM !== 'bun') {
+if (!['npm', 'cnpm', 'pnpm', 'yarn', 'bun'].includes(wantedPM)) {
   console.log(`"${wantedPM}" is not a valid package manager. Available package managers are: npm, cnpm, pnpm, yarn or bun.`)
   process.exit(1)
 }
