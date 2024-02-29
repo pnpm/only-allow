@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const whichPMRuns = require('which-pm-runs')
+const availablePMList = ['npm', 'cnpm', 'pnpm', 'yarn', 'bun']
 
 function box(s) {
   const lines = s.trim().split("\n")
@@ -14,12 +15,13 @@ function box(s) {
 
 const argv = process.argv.slice(2)
 if (argv.length === 0) {
-  console.log('Please specify the wanted package manager: only-allow <npm|cnpm|pnpm|yarn|bun>')
+  console.log(`Please specify the wanted package manager: only-allow <${availablePMList.join('|')}>`)
   process.exit(1)
 }
 const wantedPM = argv[0]
-if (!['npm', 'cnpm', 'pnpm', 'yarn', 'bun'].includes(wantedPM)) {
-  console.log(`"${wantedPM}" is not a valid package manager. Available package managers are: npm, cnpm, pnpm, yarn or bun.`)
+if (!availablePMList.includes(wantedPM)) {
+  const pmStr = `${availablePMList.slice(0, -1).join(', ')} or ${availablePMList[availablePMList.length - 1]}`
+  console.log(`"${wantedPM}" is not a valid package manager. Available package managers are: ${pmStr}.`)
   process.exit(1)
 }
 const usedPM = whichPMRuns()
