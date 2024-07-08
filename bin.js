@@ -26,7 +26,7 @@ if (!availablePMList.includes(wantedPM)) {
 }
 const usedPM = whichPMRuns()
 const cwd = process.env.INIT_CWD || process.cwd()
-const isInstalledAsDependency = cwd.includes('node_modules')
+const isInstalledAsDependency = cwd.includes('node_modules') || cwd.includes('_cacache')
 if (usedPM && usedPM.name !== wantedPM && !isInstalledAsDependency) {
   switch (wantedPM) {
     case 'npm':
