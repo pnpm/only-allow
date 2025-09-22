@@ -56,6 +56,16 @@ If you want to force [bun](https://bun.sh/), add:
 }
 ```
 
+If you want to force [deno](https://deno.land/), add:
+
+```json
+{
+  "scripts": {
+    "preinstall": "npx only-allow deno"
+  }
+}
+```
+
 ## License
 
 [MIT](LICENSE)
