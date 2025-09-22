@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const whichPMRuns = require('which-pm-runs')
-const availablePMList = ['npm', 'cnpm', 'pnpm', 'yarn', 'bun']
+const availablePMList = ['npm', 'cnpm', 'pnpm', 'yarn', 'bun', 'deno']
 
 function box(s) {
   const lines = s.trim().split("\n")
@@ -52,6 +52,12 @@ For more details, go to https://yarnpkg.com/`))
       console.log(box(`Use "bun install" for installation in this project.
 
 If you don't have Bun, go to https://bun.sh/docs/installation and find installation method that suits your environment.`))
+      break
+
+    case 'deno':
+      console.log(box(`Use "deno install" for installation in this project.
+
+If you don't have Deno, go to https://deno.land/#installation and follow the installation instructions.`))
       break
   }
   process.exit(1)
