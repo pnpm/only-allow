@@ -13,7 +13,8 @@
     "cnpm",
     "npm",
     "yarn",
-    "bun"
+    "bun",
+    "deno"
   ],
   "author": "Zoltan Kochan <z@kochan.io>",
   "license": "MIT",
