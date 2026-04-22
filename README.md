@@ -1,4 +1,6 @@
-**Use the ["devEngines.packageManager"](https://pnpm.io/11.x/package_json#devenginespackagemanager) field in "package.json" to force a specific package manager!**
+> ## :warning:DEPRECATED:
+> 
+> **Use the ["devEngines.packageManager"](https://pnpm.io/11.x/package_json#devenginespackagemanager) field in "package.json" to force a specific package manager!**
 
 
 # only-allow
